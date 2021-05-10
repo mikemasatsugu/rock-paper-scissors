@@ -9,19 +9,26 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection.toUpperCase() === computerSelection.toUpperCase()){
-        return "Tie!"
+        console.log("Tie!")
+        return null;
     } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "Paper") {
-        return "You Lose!  Paper beats Rock!";
+        console.log("You Lose!  Paper beats Rock!")
+        return false;
     } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "Scissors") {
-        return "You Win!  Rock beats Scissors!";
+        console.log("You Win!  Rock beats Scissors!")
+        return true;
     } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "Rock") {
-        return "You Win!  Paper beats Rock.";
+        console.log("You Win!  Paper beats Rock.")
+        return true;
     } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "Scissors") {
-        return "You Lose!  Scissors beats Paper.";
+        console.log("You Lose!  Scissors beats Paper.")
+        return false;
     } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "Rock") {
-        return "You Lose!  Rock beats Scissors.";
+        console.log("You Lose!  Rock beats Scissors.")
+        return false;
     } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "Paper") {
-        return "You Win!  Paper beats Scissors.";
+        console.log("You Win!  Paper beats Scissors.")
+        return true;
     }
 }
 
@@ -38,10 +45,10 @@ function game() {
         let playerSelection = prompt()
         let computerSelection = computerPlay()
         result = playRound(playerSelection,computerSelection)
-        console.log(result)
-        if (result.slice(4,5) === "W") {
+        // console.log(result)
+        if (result === true) {
             playerScore++
-        } else if (result.slice(4,5) === "L"){
+        } else if (result === false){
             computerScore++
         }
     }   
